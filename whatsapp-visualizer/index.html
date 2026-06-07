@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WhatsApp Chat Visualizer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Landing Screen -->
+  <div class="landing-screen" id="landing-screen">
+    <div class="landing-card glass">
+      <div class="landing-icon">
+        <i class="fa-brands fa-whatsapp"></i>
+      </div>
+      <h1>WhatsApp Chat Visualizer</h1>
+      <p>Upload your exported WhatsApp chat to visualize conversations.</p>
+      
+      <div class="drop-zone" id="drop-zone">
+        <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+        </svg>
+        <p>Drag & drop your .txt file here</p>
+      </div>
+      
+      <div class="or-separator">OR</div>
+      
+      <button id="landing-upload-btn" class="btn btn-primary">
+        <i class="fa-solid fa-file-arrow-up"></i> Choose File
+      </button>
+      
+
+    </div>
+  </div>
+
+  <!-- Main Application - WhatsApp Style -->
+  <div class="whatsapp-container hidden" id="app-container">
+    <!-- Header -->
+    <header class="whatsapp-header">
+      <div class="header-left">
+        <button id="menu-btn" class="icon-btn" title="Menu">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <div class="header-info">
+          <h1 class="chat-name">Chat Visualization</h1>
+          <p class="chat-status" id="chat-subtitle-text">Loading...</p>
+        </div>
+      </div>
+      <div class="header-right">
+        <select id="perspective-select" class="perspective-select hidden"></select>
+        <div style="position: relative; display: inline-block;">
+          <button id="date-jump-btn" class="icon-btn hidden" title="Jump to Date">
+            <i class="fa-regular fa-calendar-days"></i>
+          </button>
+          <input type="date" id="date-jump-input" style="position: absolute; top: 100%; right: 0; opacity: 0; pointer-events: none; height: 0; width: 0; border: none; padding: 0;">
+        </div>
+        <button id="upload-chat-btn" class="icon-btn" title="Upload Chat">
+          <i class="fa-solid fa-file-arrow-up"></i>
+        </button>
+        <input type="file" id="chat-file-input" accept=".txt" style="display:none;">
+      </div>
+    </header>
+
+    <!-- Messages Feed -->
+    <div class="chat-feed" id="chat-feed">
+      <div id="empty-state" class="empty-state">
+        <div class="empty-icon">💬</div>
+        <h3>No Messages</h3>
+        <p>Upload a WhatsApp chat export to get started.</p>
+      </div>
+      <div class="messages-container" id="messages-container"></div>
+    </div>
+
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
